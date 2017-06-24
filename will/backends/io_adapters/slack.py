@@ -34,7 +34,7 @@ class SlackBackend(IOBackend):
 
         if (
             event["type"] == "message" and
-            ("subtype" not in event or event["subtype"] != "message_changed")
+            ("subtype" not in event or event["subtype"] not in ["message_changed", "message_replied"])
         ):
             # print "slack: normalize_incoming_event - %s" % event
             # Sample of group message
